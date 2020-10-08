@@ -27,14 +27,14 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+              <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="lCadena" alignment="0" max="32767" attributes="0"/>
-                  <Component id="lCaracter" alignment="0" pref="180" max="32767" attributes="0"/>
                   <Component id="lDecimal" alignment="0" max="32767" attributes="0"/>
                   <Component id="lEntero" alignment="0" max="32767" attributes="0"/>
-                  <Component id="lLogico" max="32767" attributes="0"/>
+                  <Component id="lLogico" pref="207" max="32767" attributes="0"/>
+                  <Component id="lCaracter" alignment="0" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="tbCaracter" alignment="0" min="-2" pref="137" max="-2" attributes="0"/>
                   <Component id="tbLogico" min="-2" pref="137" max="-2" attributes="0"/>
@@ -98,7 +98,6 @@
                               <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="bLogico" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -128,6 +127,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Verificar"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="bCaracterMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="tbDecimal">
     </Component>
@@ -135,6 +137,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Verificar"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="bDecimalMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="tbCadena">
     </Component>
@@ -142,6 +147,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Verificar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bCadenaActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="tbLogico">
     </Component>
@@ -149,6 +157,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Verificar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bLogicoActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lDecimal">
       <Properties>
@@ -167,7 +178,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lCadena">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Escriba su nombre:"/>
+        <Property name="text" type="java.lang.String" value="Escriba su contrase&#xf1;a:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lLogico">

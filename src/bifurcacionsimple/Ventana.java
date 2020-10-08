@@ -14,6 +14,7 @@ import javax.swing.JOptionPane;
 public class Ventana extends javax.swing.JFrame {
 
     private Bifurcacion bifu = new Bifurcacion();
+      
     /**
      * Creates new form Ventana
      */
@@ -58,12 +59,32 @@ public class Ventana extends javax.swing.JFrame {
         });
 
         bCaracter.setText("Verificar");
+        bCaracter.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bCaracterMouseClicked(evt);
+            }
+        });
 
         bDecimal.setText("Verificar");
+        bDecimal.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bDecimalMouseClicked(evt);
+            }
+        });
 
         bCadena.setText("Verificar");
+        bCadena.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bCadenaActionPerformed(evt);
+            }
+        });
 
         bLogico.setText("Verificar");
+        bLogico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bLogicoActionPerformed(evt);
+            }
+        });
 
         lDecimal.setText("Digite su estatura:");
 
@@ -71,7 +92,7 @@ public class Ventana extends javax.swing.JFrame {
 
         lCaracter.setText("Escriba el tipo de beca: A, B o C:");
 
-        lCadena.setText("Escriba su nombre:");
+        lCadena.setText("Escriba su contraseña:");
 
         lLogico.setText("¿Es becado? Sí-True No-False");
 
@@ -81,13 +102,13 @@ public class Ventana extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lCadena, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lCaracter, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
                     .addComponent(lDecimal, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lEntero, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lLogico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, Short.MAX_VALUE)
+                    .addComponent(lLogico, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
+                    .addComponent(lCaracter, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(tbCaracter, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tbLogico, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -136,7 +157,6 @@ public class Ventana extends javax.swing.JFrame {
                                         .addComponent(lCaracter))
                                     .addComponent(bCaracter))
                                 .addGap(29, 29, 29)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(bLogico))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(tbLogico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -163,6 +183,70 @@ public class Ventana extends javax.swing.JFrame {
         }
             
     }//GEN-LAST:event_bEnteroActionPerformed
+
+    private void bDecimalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bDecimalMouseClicked
+        bifu.setDecimal(Float.parseFloat(this.tbDecimal.getText()));
+        if(bifu.getDecimal()<=160.0f){
+            JOptionPane.showMessageDialog(this,
+                  "Usted es de baja estatura",
+                  "Bifurcación simple",
+                  JOptionPane.INFORMATION_MESSAGE);
+        }
+        else{
+            JOptionPane.showMessageDialog(this,
+                  "Usted es de mediana o alta estatura",
+                  "Bifurcación simple",
+                  JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_bDecimalMouseClicked
+
+    private void bCaracterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bCaracterMouseClicked
+        bifu.setCaracter(this.tbCaracter.getText().charAt(0));
+        if(bifu.getCaracter()!='A' && bifu.getCaracter()!='a'){
+            JOptionPane.showMessageDialog(this,
+                  "Su reunión es la próxima semana",
+                  "Bifurcación simple",
+                  JOptionPane.INFORMATION_MESSAGE);
+        }
+        else{
+            JOptionPane.showMessageDialog(this,
+                  "Usted tiene cita el día de hoy",
+                  "Bifurcación simple",
+                  JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_bCaracterMouseClicked
+
+    private void bCadenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCadenaActionPerformed
+        this.bifu.setCadena(this.tbCadena.getText());
+        if(bifu.getCadena().equals("123.abc")){
+            JOptionPane.showMessageDialog(this,
+                  "Acceso concedido",
+                  "Bifurcación simple",
+                  JOptionPane.INFORMATION_MESSAGE);
+        }
+        else{
+            JOptionPane.showMessageDialog(this,
+                  "Acceso denegado",
+                  "Bifurcación simple",
+                  JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_bCadenaActionPerformed
+
+    private void bLogicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLogicoActionPerformed
+        this.bifu.setLogico(Boolean.parseBoolean(this.tbLogico.getText()));
+        if(bifu.getLogico()==true){
+            JOptionPane.showMessageDialog(this,
+                  "Felicidades",
+                  "Bifurcación simple",
+                  JOptionPane.INFORMATION_MESSAGE);
+        }
+        else{
+            JOptionPane.showMessageDialog(this,
+                  "Puedes optar a una...",
+                  "Bifurcación simple",
+                  JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_bLogicoActionPerformed
 
     /**
      * @param args the command line arguments
